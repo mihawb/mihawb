@@ -1,0 +1,74 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(255,230,230);
+    margin: 0;
+}
+
+@keyframes goneUp1
+{
+    0% {
+        opacity: 0;
+        border-radius: 50px;
+        transform: translateY(40vh);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        border-radius: 0;
+        transform: rotate(225deg) scale(5, 0.5);
+    }
+}
+
+@keyframes goneUp2
+{
+    0% {
+        opacity: 0;
+        border-radius: 50px;
+        transform: translateY(40vh);
+    }
+    40% {
+        opacity: 1;
+        border-radius: 25px;
+        transform: translateY(0);
+    }
+    100% {
+        border-radius: 0;
+        transform: rotate(315deg) scale(5, 0.5);
+    }
+}
+
+.box1
+{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    margin: auto;
+
+    animation-name: goneUp1;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+    /*animation-timing-function: cubic-bezier(0.5,1.75,.5,.8);*//*bump*/
+}
+
+.box2
+{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    margin: auto;
+
+    animation-name: goneUp2;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-fill-mode: both;
+    /*animation-timing-function: cubic-bezier(0.5,1.75,.5,.8);*//*bump*/
+}
