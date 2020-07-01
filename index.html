@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="keywords" content="pogoda">
+    <meta name="decription" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Parallax effect</title>
-    <link rel="stylesheet" href="parallax1.css">
-</head>
-<body>
-
-    <header>
-        <h1>Parallax effect</h1>
-        <p>Pure CSS // No JavaScript</p>
-    </header>
+    <title>Kanał Pogodowy ☀</title>
     
+    <script type="text/javascript" src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- <input type="text" id="inputMiasto" placeholder="Miasto" required/> -->
+
+    <div id="inputContainer">
+        <select id="inputMiasto">
+            <option value="Lodz">Łódź</option>
+            <option value="Warsaw">Warszawa</option>
+            <option value="Wroclaw">Wrocław</option>
+            <option value="Krakow">Kraków</option>
+            <option value="Gdansk">Gdańsk</option>
+        </select>
+        
+        <input type="submit" id="submitMiasto" value="Sprawdź pogodę" onclick="zmienMiasto()" /> 
+        <div style="clear: both;"></div>
+    </div>
+
+    <div id="infoContainer">
+        <span id="pogodaTytul"></span>
+        <p class="linijeczka" id="weatherDescrition">Twoja stara w garnku</p>
+        <p class="linijeczka" id="temperature">Twoja stara na bahamach</p>
+        <p class="linijeczka" id="tempFeelsLike">Twoja stara u fryzjera</p>
+    </div>
+
 </body>
 </html>

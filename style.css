@@ -1,0 +1,63 @@
+body
+{
+    font-family: 'Playfair Display', serif;
+    color: white;
+    background:  linear-gradient(#0066ff, #96ffff);
+    background-repeat: no-repeat; /* te dwa pozwalaja zeby gradient rozciagal sie na caly ekran, bez nich jest gradient tylko na contencie w body, a potem sie powtarza */
+    background-attachment: fixed; /* chociaz sama ta linijka tez temu zapobiega */
+    margin: 0;
+}
+
+#inputContainer
+{
+    /*border: solid;*/
+    width: 30vw;
+    min-width: 400px;
+    height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+}
+
+#inputMiasto
+{
+    display: block-inline;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    text-align: center;
+    margin: 0;
+    width: 50%;
+    height: 100%;
+}
+
+#submitMiasto
+{
+    display: block-inline;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+    margin: 0;
+    width: 49%;
+    height: 100%;
+}
+
+#infoContainer
+{
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+}
+
+#pogodaTytul
+{
+    border: solid;
+    font-weight: 900;
+    font-size: 2.8vw;
+    text-align: justify;
+}
+
+#pogodaTytul:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
