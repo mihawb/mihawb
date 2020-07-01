@@ -14,7 +14,7 @@ async function zmienMiasto() {
     
     if (currentCity != miasto) {
         currentCity = miasto;
-        let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + miasto + '&appid=b1308074081cd4b5bb33c1c656c895ec&units=metric';
+        let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + miasto + '&appid=b1308074081cd4b5bb33c1c656c895ec&units=metric';
         pogObj = await (await fetch(url)).json();
         console.log(pogObj);
         zmienTytul(miasto)
