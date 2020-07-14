@@ -1,63 +1,210 @@
-body
-{
-    font-family: 'Playfair Display', serif;
-    color: white;
-    background:  linear-gradient(#0066ff, #96ffff);
-    background-repeat: no-repeat; /* te dwa pozwalaja zeby gradient rozciagal sie na caly ekran, bez nich jest gradient tylko na contencie w body, a potem sie powtarza */
-    background-attachment: fixed; /* chociaz sama ta linijka tez temu zapobiega */
-    margin: 0;
+:root {
+    --dark-blue: #0a2a43;
+    --darker-blue: #00182c;
+    --light-blue: rgb(58, 104, 139);
+    --lighter-blue: rgb(99, 131, 156);
 }
 
-#inputContainer
-{
-    /*border: solid;*/
-    width: 30vw;
-    min-width: 400px;
-    height: 5vh;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vh;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
-#inputMiasto
-{
-    display: block-inline;
-    font-family: 'Playfair Display', serif;
-    font-size: medium;
-    text-align: center;
-    margin: 0;
-    width: 50%;
+body {
+    background: var(--dark-blue);
+    min-height: 1500px;
+}
+
+/* ======================= style paralaksy */
+
+section {
+    position: realtive;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(to top, var(--dark-blue), transparent);
+    z-index: 10000;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-blue);
+    z-index: 10000;
+    mix-blend-mode: color;
+}
+
+section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#road {
+    z-index: 2;
+}
+
+#text {
+    font-weight: 800;
+    position: relative;
+    color: #fff;
+    font-size: 10rem;
+    z-index: 1;
+}
+
+/* ======================= style kart (przód) */
+
+#cardContainer {
+    background: linear-gradient(to top, var(--darker-blue), var(--dark-blue));
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    color: #fff;
+
+    position: relative; /* dla footera ktory jest absolute */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin: 0 50px;
+}
+
+.card .content {
+    overflow: hidden;
+    border-radius: 20px;
     height: 100%;
 }
 
-#submitMiasto
-{
-    display: block-inline;
-    font-family: 'Playfair Display', serif;
-    font-size: medium;
-    margin: 0;
-    width: 49%;
-    height: 100%;
+.card .front .image img {
+    max-height: 450px;
+    min-width: 100%;
 }
 
-#infoContainer
-{
-    width: 30vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vh;
+.card .front .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: right;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 50%);
+    padding: 40px 20px 20px;
+    font-size: 2rem;
+    font-weight: 400;
+    border-radius: 20px;
 }
 
-#pogodaTytul
-{
-    border: solid;
-    font-weight: 900;
-    font-size: 2.8vw;
-    text-align: justify;
+.card .front .author {
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.6;
 }
 
-#pogodaTytul:after {
-  content: "";
-  display: inline-block;
-  width: 100%;
+/* ======================= style kart (tył) */
+
+.card .front,
+.card .back {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: -5px 15px 5px 5px var(--darker-blue);
+  
+  transition: transform 400ms; /* ten transition też odp. za ruch */
+}
+
+.card .back .content {
+  background: linear-gradient(to top, var(--light-blue), var(--lighter-blue));
+  text-align: center;
+}
+
+.card .back .title {
+  font-size: 2rem;
+  margin-top: 20%;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-shadow: -5px 15px 5px 5px var(--darker-blue);
+}
+
+.card .back .sub-title {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.card .back .info ul {
+  list-style: none;
+  text-align: left;
+  margin: 30px 20px;
+}
+
+.card .back .info ul li {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.card .back .info ul li i {
+  margin-right: 10px;
+}
+
+/* ======================= style kart (ruch) */
+
+.card .front {
+  transform: perspective(900px) rotateY(0deg);
+}
+
+.card .back {
+  transform: perspective(900px) rotateY(180deg);
+}
+
+.card:hover .front {
+  transform: perspective(900px) rotateY(-180deg);
+}
+
+.card:hover .back {
+  transform: perspective(900px) rotateY(0deg);
+}
+
+/* ======================= stopka */
+
+footer {
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    z-index: 10000;
+    bottom: 0.5rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none; 
+    font-style: italic;
 }

@@ -2,39 +2,128 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="pogoda">
-    <meta name="decription" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanał Pogodowy ☀</title>
-    
-    <script type="text/javascript" src="index.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-
+    <title>Moon Light 🌕</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <!-- <input type="text" id="inputMiasto" placeholder="Miasto" required/> -->
+    
+    <section>
+        <img src="assets/bg.jpg" id="bg">
+        <img src="assets/moon.png" id="moon">
+        <img src="assets/mountain.png" id="mountain">
+        <img src="assets/road.png" id="road">
+        <h2 id="text">Lorem Ipsum</h2>
+    </section>
 
-    <div id="inputContainer">
-        <select id="inputMiasto">
-            <option value="Lodz">Łódź</option>
-            <option value="Warsaw">Warszawa</option>
-            <option value="Wroclaw">Wrocław</option>
-            <option value="Krakow">Kraków</option>
-            <option value="Gdansk">Gdańsk</option>
-        </select>
+    <div id="cardContainer">
+
+        <!-- Diane Keane - Panna Młoda dla... -->
+        <div class="card">
+            <div class="front">
+                <div class="content">
+                    <div class="image">
+                        <img src="assets/diane-kenae-panna-mloda-dla.jpg" alt="">
+                    </div>
+                    <div class="title">
+                        Panna Młoda dla...
+                        <div class="author">Diane Keane</div>
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="content">
+                    <div class="title">
+                        Panna Młoda dla...
+                    </div>
+                    <div class="sub-title">
+                        malarstwo surrelaistyczne
+                    </div>
+                    <div class="info">
+                        <ul>
+                            <li><i class="tiny material-icons">person</i>Diane Keane</li>
+                            <li><i class="tiny material-icons">access_time</i>2019</li>
+                            <li><i class="tiny material-icons">brush</i>kolaż cyfrowy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <input type="submit" id="submitMiasto" value="Sprawdź pogodę" onclick="zmienMiasto()" /> 
-        <div style="clear: both;"></div>
+        <!-- Rene Magritte - Spadanie -->
+        <div class="card">
+            <div class="front">
+                <div class="content">
+                    <div class="image">
+                        <img src="assets/rene-magritte-spadanie.jpg" alt="">
+                    </div>
+                    <div class="title">
+                        Spadanie
+                        <div class="author">René Magritte</div>
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="content">
+                    <div class="title">
+                        Spadanie
+                    </div>
+                    <div class="sub-title">
+                        malarstwo surrelaistyczne
+                    </div>
+                    <div class="info">
+                        <ul>
+                            <li><i class="tiny material-icons">person</i>René Magritte</li>
+                            <li><i class="tiny material-icons">access_time</i>1953</li>
+                            <li><i class="tiny material-icons">brush</i>olej na płótnie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rene Magritte - Kondycja ludzka -->
+        <div class="card">
+            <div class="front">
+                <div class="content">
+                    <div class="image">
+                        <img src="assets/rene-magritte-kondycja-ludzka.jpg" alt="">
+                    </div>
+                    <div class="title">
+                        Kondycja ludzka
+                        <div class="author">René Magritte</div>
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="content">
+                    <div class="title">
+                        Kondycja ludzka
+                    </div>
+                    <div class="sub-title">
+                        malarstwo surrelaistyczne
+                    </div>
+                    <div class="info">
+                        <ul>
+                            <li><i class="tiny material-icons">person</i>René Magritte</li>
+                            <li><i class="tiny material-icons">access_time</i>1933</li>
+                            <li><i class="tiny material-icons">brush</i>olej na płótnie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            © 2020 <a href="https://www.instagram.com/fuckmihaw/" target="_blank" title="we daj follow">@fuckmihaw</a>
+        </footer>
+
     </div>
 
-    <div id="infoContainer">
-        <span id="pogodaTytul"></span>
-        <p class="linijeczka" id="weatherDescrition">Twoja stara w garnku</p>
-        <p class="linijeczka" id="temperature">Twoja stara na bahamach</p>
-        <p class="linijeczka" id="tempFeelsLike">Twoja stara u fryzjera</p>
-    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
