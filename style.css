@@ -5,6 +5,14 @@
     --lighter-blue: rgb(99, 131, 156);
 }
 
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after {
+	box-sizing: inherit;
+} /*to sie zmienilo i moze powodowac prblemy */
+
 * {
     margin: 0;
     padding: 0;
@@ -237,4 +245,109 @@ footer a {
   #moon {
     object-fit: contain;
   }
+}
+
+/* === pozycja i styl klas guzika === */
+.hamburger {
+	position: fixed;
+	top: 0;
+	right: 0;
+	background: transparent;
+	padding: 10px 0px 10px 10px;
+	border: 0;
+	margin: 20px 20px;
+	outline: none;
+	cursor: pointer;
+	overflow: hidden;
+  z-index: 100002;
+}
+
+.hamburger__box {
+	width: 32px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
+
+/* === styluje kreske === */
+.hamburger__inner,
+.hamburger__inner::before,
+.hamburger__inner::after {
+	width: 100%;
+	height: 3px;
+	background-color: #fff;
+	position: absolute;
+  left: 0;
+}
+
+.hamburger__inner::before,
+.hamburger__inner::after {
+	content: "";
+	transition: transform .3s ease-in-out;
+}
+
+/* === styluje polozenie kresek === */
+.hamburger__inner {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.hamburger__inner::before {
+	transform: translateY(-10px);
+}
+
+.hamburger__inner::after {
+	transform: translateY(10px);
+}
+
+/* === style when hamburger is active === */
+.hamburger--active {
+	transform: translateX(-310px);
+}
+
+.hamburger, .navigation {
+	transition: transform .3s ease-in-out;
+}
+
+.hamburger--active .hamburger__inner::before {
+	transform: translateX(50%) rotate(45deg);
+}
+
+.hamburger--active .hamburger__inner::after {
+	transform: translateX(50%) rotate(-45deg);
+}
+
+/* === sideNavBar === */
+.navigation {
+	height: 100vh;
+	width: 300px;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	right: 0;
+  transform: translateX(310px);
+  z-index: 100001;
+  box-shadow: -5px 0 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.navigation--active {
+	transform: translateX(0);
+}
+
+.navigation__list {
+  margin-top: 30px;
+  margin-left: 30px;
+  list-style: none;
+}
+
+.navigation__item {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.navigation__item a {
+	text-decoration: none;
+  color: var(--dark-blue);
 }
